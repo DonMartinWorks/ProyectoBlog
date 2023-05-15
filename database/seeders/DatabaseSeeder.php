@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Creacion de la carpeta (posts) si no existe
-        Storage::makeDirectory('posts');
+        Storage::makeDirectory('public/posts');
 
         $this->call(UserSeeder::class);
 
