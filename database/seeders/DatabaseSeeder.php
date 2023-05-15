@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Eliminacion posts, para no tener imaganes de mas
+        Storage::deleteDirectory('public/posts');
+
         // Creacion de la carpeta (posts) si no existe
         Storage::makeDirectory('public/posts');
 
