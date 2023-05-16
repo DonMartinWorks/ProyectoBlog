@@ -48,7 +48,7 @@
                             aria-current="page">Dashboard</a> --}}
                         @foreach ($categories as $category)
                             <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                                class="text-gray-300 hover:underline-offset-2 hover:text-white rounded-md px-3 py-2 text-sm font-medium capitalize">
                                 {{ $category->name }}
                             </a>
                         @endforeach
@@ -84,20 +84,24 @@
 
                         <!-- Dropdown menu, show/hide based on menu state.
 
-                                                                              Entering: "transition ease-out duration-100"
-                                                                                From: "transform opacity-0 scale-95"
-                                                                                To: "transform opacity-100 scale-100"
-                                                                              Leaving: "transition ease-in duration-75"
-                                                                                From: "transform opacity-100 scale-100"
-                                                                                To: "transform opacity-0 scale-95"
+                                Entering: "transition ease-out duration-100"
+                                  From: "transform opacity-0 scale-95"
+                                  To: "transform opacity-100 scale-100"
+                                Leaving: "transition ease-in duration-75"
+                                  From: "transform opacity-100 scale-100"
+                                  To: "transform opacity-0 scale-95"
 
-                                                                        -->
+                            -->
+
                         <div x-show="open" x-on:click.away="open = false"
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             <!-- Active: "bg-gray-100", Not Active: "" -->
-                            <a class="py-3 block px-4 text-sm bg-gray-700 text-white font-semibold">{{ __('Greetings') }}:
-                                {{ auth()->user()->name }}</a>
+                            <a class="py-3 block px-4 text-sm bg-gray-700 text-white font-semibold mb-3">{{ __('Greetings') }}:
+                                <span class="text-xs">
+                                    {{ auth()->user()->name }}
+                                </span>
+                            </a>
                             <a href="{{ route('profile.show') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem"
                                 tabindex="-1" id="user-menu-item-0">{{ __('Profile') }}</a>
@@ -115,10 +119,10 @@
                 </div>
             @else
                 <a href="{{ route('login') }}"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ __('Log in') }}</a>
+                    class="text-gray-300 hover:underline-offset-2 hover:text-white rounded-md px-3 py-2 text-sm font-medium capitalize">{{ __('Log in') }}</a>
 
                 <a href="{{ route('register') }}"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ __('Register') }}</a>
+                    class="text-gray-300 hover:underline-offset-2 hover:text-white rounded-md px-3 py-2 text-sm font-medium capitalize">{{ __('Register') }}</a>
             @endauth
         </div>
     </div>
@@ -132,7 +136,7 @@
                 aria-current="page">Dashboard</a> --}}
             @foreach ($categories as $category)
                 <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium text-center uppercase">
                     {{ $category->name }}
                 </a>
             @endforeach
