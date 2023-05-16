@@ -22,5 +22,9 @@
                 </article>
             @endforeach
         </div>
+
+        <div class="mt-4">
+            {{ $posts->links() }}
+        </div>
     </div>
 </x-app-layout>

@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         //  Trae todos los posts que sean de STATUS = 2 (publicado)
-        $posts = Post::where('status', 2)->get();
+        $posts = Post::where('status', 2)->latest('id')->paginate(8);
 
         return view('models.post.index', compact('posts'));
     }
