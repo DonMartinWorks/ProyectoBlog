@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($posts as $post)
                 <article
-                    class="w-full h-80 bg-cover bg-center rounded-md
+                    class="w-full h-80 bg-cover bg-center rounded-md border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400
                     @if ($loop->first) md:col-span-2 @endif"
                     style="background-image: url({{ Storage::url($post->image->url) }})">
 
