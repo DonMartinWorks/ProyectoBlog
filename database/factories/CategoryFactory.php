@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         //Para generar el slug segun name
-        $name = $this->faker->unique()->word(20);
+        $name = $this->faker->unique()->firstName();
 
         return [
             'name' => $name,
