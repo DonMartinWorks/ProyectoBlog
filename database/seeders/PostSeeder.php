@@ -24,8 +24,8 @@ class PostSeeder extends Seeder
 
             //Relacionar posts con tags
             $post->tags()->attach([
-                rand(1, 4),
-                rand(5, 8)
+                rand(1, 6),
+                rand(5, 12)
             ]);
         }
     }
