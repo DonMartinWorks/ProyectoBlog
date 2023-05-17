@@ -40,7 +40,19 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        /**
+         * Traer todos los posts relacionados (segun la ID de category
+         * y que su status sea 2 de publicado) desde la base de datos
+         */
+
+        $relateds = Post::where('category_id', $post->category_id)
+            ->where('status', 2)
+            ->where('id', '!=', $post->id)
+            ->latest('id')
+            ->take(4)
+            ->get();
+
+        return view('models.post.show', compact('post', 'relateds'));
     }
 
     /**

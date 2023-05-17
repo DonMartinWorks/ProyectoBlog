@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Models\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__ . '/posts.php';
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');

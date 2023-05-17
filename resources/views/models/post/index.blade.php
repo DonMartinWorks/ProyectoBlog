@@ -16,7 +16,7 @@
                         </div>
 
                         <span class="text-3xl text-white leading-8 font-bold drop-shadow-xl">
-                            <a href="">{{ $post->name }}</a>
+                            <a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
                         </span>
                     </div>
                 </article>
