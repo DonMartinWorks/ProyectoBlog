@@ -10,12 +10,12 @@
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <div>
                             @foreach ($post->tags as $tag)
-                                <a href=""
+                                <a href="{{ route('posts.tag', $tag) }}"
                                     class="capitalize inline-block px-3 h-6 bg-{{ $tag->color }}-600 text-white rounded-md">{{ $tag->name }}</a>
                             @endforeach
                         </div>
 
-                        <span class="text-3xl text-white leading-8 font-bold drop-shadow-xl">
+                        <span class="text-3xl text-white leading-8 font-bold drop-shadow-xl mt-2">
                             <a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
                         </span>
                     </div>
@@ -23,7 +23,7 @@
             @endforeach
         </div>
 
-        <div class="mt-4">
+        <div class="mt-6">
             {{ $posts->links() }}
         </div>
     </div>

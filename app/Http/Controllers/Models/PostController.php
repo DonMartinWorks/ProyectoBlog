@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Models;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -67,6 +68,16 @@ class PostController extends Controller
             ->paginate(6);
 
         return view('models.post.category', compact('posts', 'category'));
+    }
+
+    /**
+     * Bring the tags.
+     */
+    public function tag(Tag $tag)
+    {
+        $posts = $tag->posts()->where('status', 2)->latest('id')->paginate(6);
+
+        return view('models.post.tag', compact('posts', 'tag'));
     }
 
     /**
