@@ -36,5 +36,7 @@ export default {
         "bg-rose-600",
         "bg-teal-600",
         "bg-orange-600",
+        "bg-sky-600",
+        "bg-lime-600",
     ],
 };
