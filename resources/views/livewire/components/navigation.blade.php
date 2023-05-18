@@ -84,14 +84,14 @@
 
                         <!-- Dropdown menu, show/hide based on menu state.
 
-                                    Entering: "transition ease-out duration-100"
-                                      From: "transform opacity-0 scale-95"
-                                      To: "transform opacity-100 scale-100"
-                                    Leaving: "transition ease-in duration-75"
-                                      From: "transform opacity-100 scale-100"
-                                      To: "transform opacity-0 scale-95"
+                                        Entering: "transition ease-out duration-100"
+                                          From: "transform opacity-0 scale-95"
+                                          To: "transform opacity-100 scale-100"
+                                        Leaving: "transition ease-in duration-75"
+                                          From: "transform opacity-100 scale-100"
+                                          To: "transform opacity-0 scale-95"
 
-                                -->
+                                    -->
 
                         <div x-show="open" x-on:click.away="open = false"
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -105,6 +105,10 @@
                             <a href="{{ route('profile.show') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem"
                                 tabindex="-1" id="user-menu-item-0">{{ __('Profile') }}</a>
+
+                            <a href="{{ route('admin.home') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300" role="menuitem"
+                                tabindex="-1" id="user-menu-item-0">{{ __('Admin Dashboard') }}</a>
 
                             <!-- Logout - Authentication -->
                             <form method="POST" action="{{ route('logout') }}">@csrf

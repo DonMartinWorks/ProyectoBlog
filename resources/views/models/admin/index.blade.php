@@ -3,11 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>{{__('Admin Dashboard')}}</h1>
+    <h1>{{ __('Admin Dashboard') }}</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>{{ __('Welcome to the admin panel.') }}</p>
 @stop
 
 {{-- @section('css')

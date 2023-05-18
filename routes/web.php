@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__ . '/posts.php';
 
 Route::middleware([
     'auth:sanctum',
