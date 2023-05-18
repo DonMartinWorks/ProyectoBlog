@@ -316,11 +316,11 @@ return [
             'route'       => 'admin.home',
             'icon'        => 'fas fa-home fa-fw fa-fw',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'admin_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'   => 'Categories',
+            'route'  => 'admin.categories.index',
+            'icon'   => 'fas fa-stream fa-fw fa-fw',
         ],
         [
             'text' => 'change_password',
