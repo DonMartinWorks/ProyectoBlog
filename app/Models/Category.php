@@ -11,6 +11,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug'];
+
     /**
      * Get all of the posts for the User
      *
