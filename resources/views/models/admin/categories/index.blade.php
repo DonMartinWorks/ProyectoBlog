@@ -8,6 +8,11 @@
 
 @section('content')
     <div class="card">
+        <div class="card-header mb-4">
+            <a class="btn btn-primary btn-md"
+                href="{{ route('admin.categories.create') }}">{{ __('Create a new category') }}</a>
+        </div>
+
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -22,12 +27,22 @@
                     @foreach ($categories as $category)
                         <tr>
                             <td>{{ $category->id }}</td>
+
                             <td>{{ $category->name }}</td>
-                            <td class="text-center">
+
+                            <td width="10px" class="text-center">
                                 <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
                             </td>
-                            <td></td>
+
+                            <td width="10px">
+                                <form action="{{ route('admin.categories.destroy', $category) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button title="{{ __('Delete') }} {{ $category->name }}" type="submit"
+                                        class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

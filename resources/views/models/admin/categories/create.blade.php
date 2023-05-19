@@ -7,13 +7,24 @@
 @stop
 
 @section('content')
-    <p>{{ __('Welcome to the admin panel.') }}</p>
-@stop
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'admin.categories.store']) !!}
+            <div class="form-group">
+                {!! Form::label('name', __('Name')) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter category name']) !!}
+            </div>
 
-{{-- @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+            <div class="form-group">
+                {!! Form::label('slug', __('Slug')) !!}
+                {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Enter category slug']) !!}
+            </div>
 
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop --}}
+            <div class="text-center mt-5">
+                {!! Form::submit(__('Create category'), ['class' => 'btn btn-success']) !!}
+            </div>
+
+            {!! Form::close() !!}
+        </div>
+    </div>
+@stop
