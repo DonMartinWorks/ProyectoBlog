@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         # Mensaje Toast
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('info', __('The category was created!')); # Alerta estatica
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
 
         # Mensaje Toast
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('info', __('The category was updated!')); # Alerta estatica
     }
 
     /**
