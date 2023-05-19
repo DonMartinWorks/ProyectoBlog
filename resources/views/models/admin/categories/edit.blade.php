@@ -7,13 +7,47 @@
 @stop
 
 @section('content')
-    <p>{{ __('Welcome to the admin panel.') }}</p>
-@stop
+    <div class="card">
+        <div class="card-body">
+            {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
+            <div class="form-group">
+                {!! Form::label('name', __('Name')) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter category name']) !!}
 
-{{-- @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+                @error('name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('slug', __('Slug')) !!}
+                {!! Form::text('slug', null, ['class' => 'form-control', 'readonly']) !!}
+
+
+                @error('slug')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="text-center mt-5">
+                {!! Form::submit(__('Update category'), ['class' => 'btn btn-warning']) !!}
+            </div>
+
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
-@stop --}}
+    <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    </script>
+@endsection

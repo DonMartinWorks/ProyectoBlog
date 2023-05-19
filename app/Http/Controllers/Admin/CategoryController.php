@@ -34,6 +34,8 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
 
+        # Mensaje Toast
+
         return redirect()->route('admin.categories.index');
     }
 
@@ -56,9 +58,13 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+
+        # Mensaje Toast
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
