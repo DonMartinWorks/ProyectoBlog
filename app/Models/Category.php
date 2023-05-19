@@ -14,6 +14,14 @@ class Category extends Model
     protected $fillable = ['name', 'slug'];
 
     /**
+     * Metodo para devolver el slug en de la ID en la URL
+     */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    /**
      * Get all of the posts for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

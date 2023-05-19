@@ -37,7 +37,7 @@
                             <td>{{ $category->name }}</td>
 
                             <td width="10px" class="text-center">
-                                <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.categories.edit', $category->slug) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
                             </td>
 
