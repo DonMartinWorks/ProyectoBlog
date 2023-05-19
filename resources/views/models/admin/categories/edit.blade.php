@@ -12,7 +12,7 @@
             {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
             <div class="form-group">
                 {!! Form::label('name', __('Name')) !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter category name']) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('Enter category name')]) !!}
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="text-center mt-5">
-                {!! Form::submit(__('Update category'), ['class' => 'btn btn-warning']) !!}
+                {!! Form::submit(__('Update Category'), ['class' => 'btn btn-warning']) !!}
             </div>
 
             {!! Form::close() !!}

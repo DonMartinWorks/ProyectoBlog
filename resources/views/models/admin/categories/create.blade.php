@@ -12,7 +12,7 @@
             {!! Form::open(['route' => 'admin.categories.store']) !!}
             <div class="form-group">
                 {!! Form::label('name', __('Name')) !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter category name']) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('Enter category name')]) !!}
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="text-center mt-5">
-                {!! Form::submit(__('Create category'), ['class' => 'btn btn-success']) !!}
+                {!! Form::submit(__('Create Category'), ['class' => 'btn btn-success']) !!}
             </div>
 
             {!! Form::close() !!}

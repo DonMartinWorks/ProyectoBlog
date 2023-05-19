@@ -171,6 +171,7 @@
     "Unknown": "Desconocido",
     "Update Password": "Actualizar contraseña",
     "Update your account's profile information and email address.": "Actualice la información de su cuenta y la dirección de correo electrónico.",
+    "Edit": "Editar",
     "Use a recovery code": "Use un código de recuperación",
     "Use an authentication code": "Use un código de autenticación",
     "Verify Email Address": "Confirme su correo electrónico",
@@ -189,5 +190,14 @@
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
     "See More": "Ver Más",
     "Category": "Categoría",
-    "Label": "Etiqueta"
+    "Label": "Etiqueta",
+    "Category List": "Lista de Categorías",
+    "Create a new category": "Crear una nueva categoría",
+    "Create Category": "Crear Categoría",
+    "The category was created!": "¡Se creó la categoría!",
+    "The category was updated!": "¡Se actualizó la categoría!",
+    "The category was deleted!": "¡Se eliminó la categoría!",
+    "Enter category name": "Inserte el nombre de la categoría",
+    "Update Category": "Actualizar Categoría",
+    "Edit Category": "Editar Categoría"
 }

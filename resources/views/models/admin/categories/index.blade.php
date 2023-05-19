@@ -37,12 +37,14 @@
                             <td>{{ $category->name }}</td>
 
                             <td width="10px" class="text-center">
-                                <a href="{{ route('admin.categories.edit', $category->slug) }}" class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.categories.edit', $category->slug) }}"
+                                    class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
                             </td>
 
                             <td width="10px">
-                                <form action="{{ route('admin.categories.destroy', $category) }}" method="post">
+                                <form action="{{ route('admin.categories.destroy', $category) }}" method="post"
+                                    onsubmit="return confirm('Are you sure you want to delete this category?');">
                                     @csrf
                                     @method('delete')
                                     <button title="{{ __('Delete') }} {{ $category->name }}" type="submit"
