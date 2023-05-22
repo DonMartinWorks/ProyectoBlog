@@ -14,6 +14,14 @@ class Tag extends Model
     protected $fillable = ['name', 'slug', 'color'];
 
     /**
+     * Metodo para devolver el slug en de la ID en la URL
+     */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    /**
      * The posts that belong to the Tag
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

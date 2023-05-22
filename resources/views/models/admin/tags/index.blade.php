@@ -9,6 +9,12 @@
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-body">
             <table class="table table-striped">
@@ -26,7 +32,7 @@
                             <td>{{ $tag->id }}</td>
                             <td>{{ $tag->name }}</td>
                             <td width="10px">
-                                <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.tags.edit', $tag->slug) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $tag->name }}"">{{ __('Edit') }}</a>
                             </td>
                             <td width="10px">

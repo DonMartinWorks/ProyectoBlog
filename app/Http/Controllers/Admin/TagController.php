@@ -49,8 +49,7 @@ class TagController extends Controller
     {
         Tag::create($request->validated());
 
-        return redirect()->route('admin.tags.index');
-        //return redirect()->route('admin.tags.index')->with('info', __('The tag was created!')); # Alerta estatica
+        return redirect()->route('admin.tags.index')->with('info', __('The tag was created!')); # Alerta estatica
     }
 
     /**
@@ -91,7 +90,7 @@ class TagController extends Controller
     {
         $tag->update($request->validated());
 
-        return redirect()->route('admin.tags.index');
+        return redirect()->route('admin.tags.index')->with('info', __('The tag was updated!')); # Alerta estatica;
     }
 
     /**
@@ -101,6 +100,6 @@ class TagController extends Controller
     {
         $tag->delete();
 
-        return redirect()->route('admin.tags.index');
+        return redirect()->route('admin.tags.index')->with('info', __('The tag was deleted!')); # Alerta estatica;
     }
 }
