@@ -10,24 +10,7 @@
     <div class="card">
         <div class="card-body">
             {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
-            <div class="form-group">
-                {!! Form::label('name', __('Name')) !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => __('Enter category name')]) !!}
-
-                @error('name')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('slug', __('Slug')) !!}
-                {!! Form::text('slug', null, ['class' => 'form-control', 'readonly']) !!}
-
-
-                @error('slug')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
+            @include('models.admin.categories.partials.forms')
 
             <div class="text-center mt-5">
                 {!! Form::submit(__('Update Category'), ['class' => 'btn btn-warning']) !!}
