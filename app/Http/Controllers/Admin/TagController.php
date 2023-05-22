@@ -66,15 +66,32 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('models.admin.tags.edit', compact('tag'));
+        $colors = [
+            'red' => __('Red Color'),
+            'yellow' => __('Yellow Color'),
+            'green' => __('Green Color'),
+            'blue' => __('Blue Color'),
+            'indigo' => __('Indigo Color'),
+            'purple' => __('Purple Color'),
+            'pink' => __('Pink Color'),
+            'rose' => __('Rose Color'),
+            'teal' => __('Teal Color'),
+            'orange' => __('Orange Color'),
+            'sky' => __('Sky Color'),
+            'lime' => __('Lime Color'),
+        ];
+
+        return view('models.admin.tags.edit', compact('tag', 'colors'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag)
     {
-        //
+        $tag->update($request->validated());
+
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -82,6 +99,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('admin.tags.index');
     }
 }
