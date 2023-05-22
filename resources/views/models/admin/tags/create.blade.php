@@ -14,7 +14,7 @@
             @include('models.admin.tags.partials.forms')
 
             <div class="text-center mt-5">
-                {!! Form::submit(__('Create tag'), ['class' => 'btn btn-success']) !!}
+                {!! Form::submit(__('Create Tag'), ['class' => 'btn btn-success']) !!}
             </div>
 
             {!! Form::close() !!}

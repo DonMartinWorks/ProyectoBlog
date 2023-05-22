@@ -3,16 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <a class="btn btn-primary btn-md float-right" href="{{ route('admin.categories.create') }}">{{ __('Create a new category') }}</a>
+    <a class="btn btn-primary btn-md float-right"
+        href="{{ route('admin.categories.create') }}">{{ __('Create a new Category') }}</a>
     <h1>{{ __('Category List') }}</h1>
 @stop
 
 @section('content')
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{ session('info') }}</strong>
-        </div>
-    @endif
+    @include('models.partials.message')
 
     <div class="card">
         <div class="card-body">
@@ -33,8 +30,7 @@
                             <td>{{ $category->name }}</td>
 
                             <td width="10px" class="text-center">
-                                <a href="{{ route('admin.categories.edit', $category->slug) }}"
-                                    class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.categories.edit', $category->slug) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
                             </td>
 

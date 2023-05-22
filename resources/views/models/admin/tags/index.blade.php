@@ -3,17 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <a class="btn btn-primary btn-md float-right" href="{{ route('admin.tags.create') }}">{{ __('Create a new Label') }}</a>
+    <a class="btn btn-primary btn-md float-right" href="{{ route('admin.tags.create') }}">{{ __('Create a new Tag') }}</a>
 
     <h1>{{ __('Tag List') }}</h1>
 @stop
 
 @section('content')
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{ session('info') }}</strong>
-        </div>
-    @endif
+    @include('models.partials.message')
 
     <div class="card">
         <div class="card-body">
