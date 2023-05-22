@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -23,15 +24,33 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('models.admin.tags.create');
+        $colors = [
+            'red' => __('Red Color'),
+            'yellow' => __('Yellow Color'),
+            'green' => __('Green Color'),
+            'blue' => __('Blue Color'),
+            'indigo' => __('Indigo Color'),
+            'purple' => __('Purple Color'),
+            'pink' => __('Pink Color'),
+            'rose' => __('Rose Color'),
+            'teal' => __('Teal Color'),
+            'orange' => __('Orange Color'),
+            'sky' => __('Sky Color'),
+            'lime' => __('Lime Color'),
+        ];
+
+        return view('models.admin.tags.create', compact('colors'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        Tag::create($request->validated());
+
+        return redirect()->route('admin.tags.index');
+        //return redirect()->route('admin.tags.index')->with('info', __('The tag was created!')); # Alerta estatica
     }
 
     /**

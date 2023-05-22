@@ -11,6 +11,8 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'color'];
+
     /**
      * The posts that belong to the Tag
      *
