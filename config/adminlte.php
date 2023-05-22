@@ -150,7 +150,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -323,9 +323,9 @@ return [
             'icon'   => 'fas fa-stream fa-fw fa-fw',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'labels',
+            'route'  => 'admin.tags.index',
+            'icon' => 'fas fa-tags fa-fw fa-fw',
         ],
         [
             'text'    => 'multilevel',

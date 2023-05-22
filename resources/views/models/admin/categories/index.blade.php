@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+    <a class="btn btn-primary btn-md float-right" href="{{ route('admin.categories.create') }}">{{ __('Create a new category') }}</a>
     <h1>{{ __('Category List') }}</h1>
 @stop
 
@@ -14,11 +15,6 @@
     @endif
 
     <div class="card">
-        <div class="card-header mb-4">
-            <a class="btn btn-primary btn-md"
-                href="{{ route('admin.categories.create') }}">{{ __('Create a new category') }}</a>
-        </div>
-
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
