@@ -225,5 +225,13 @@
     "Welcome to the admin panel.": "Bienvenido al panel de Administración.",
     "We do not find any post": "No encontramos ninguna publicación",
     "If you want find a post, write the name here": "Si deseas buscar una publicación, escribe el nombre aquí",
-    "Post Details": "Detalles de la publicación"
+    "Post Details": "Detalles de la publicación",
+    "Create a Post": "Crear una Publicación",
+    "Labels": "Etiquetas",
+    "Post Status": "Estado de la Publicación",
+    "Draft Post": "Publicación en Borrador",
+    "Published Post": "Publicación Publicada",
+    "Extract": "Extracto",
+    "Post Body": "Cuerpo de la Publicación",
+    "Create Post": "Crear la Publicación"
 }

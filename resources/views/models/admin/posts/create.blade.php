@@ -36,6 +36,20 @@
             </div>
 
             <div class="form-group">
+                <p class="font-weight-bold">{{ __('Post Status') }}</p>
+                <label>
+                    {!! Form::radio('status', 1, true) !!}
+                    {{ __('Draft Post') }}
+                </label>
+
+                <label>
+                    {!! Form::radio('status', 2) !!}
+                    {{ __('Published Post') }}
+                </label>
+
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('extract', __('Extract')) !!}
                 {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
             </div>
@@ -55,6 +69,7 @@
 
 @section('js')
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -64,5 +79,17 @@
                 space: '-'
             });
         });
+
+        ClassicEditor
+            .create(document.querySelector('#extract'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @endsection
