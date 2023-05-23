@@ -19,4 +19,5 @@ return [
     'information'                   => 'Información',
     'dashboard'                     => 'Panel',
     'Categories'                    => 'Categorías',
+    'blog_options'                  => 'OPCIONES DEL BLOG',
 ];
