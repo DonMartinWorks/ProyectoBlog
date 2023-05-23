@@ -6,7 +6,7 @@ return [
     'blog'                          => 'Blog',
     'pages'                         => 'Páginas',
     'account_settings'              => 'AJUSTES DE LA CUENTA',
-    'admin_settings'              => 'AJUSTES DE LA ADMINISTRACIÓN',
+    'admin_settings'                => 'AJUSTES DE LA ADMINISTRACIÓN',
     'profile'                       => 'Perfil',
     'change_password'               => 'Cambiar Contraseña',
     'multilevel'                    => 'Multi Nivel',
@@ -20,4 +20,6 @@ return [
     'dashboard'                     => 'Panel',
     'Categories'                    => 'Categorías',
     'blog_options'                  => 'OPCIONES DEL BLOG',
+    'post_list'                     => 'Lista de publicaciones',
+    'create_a_new_post'             => 'Nueva publicación',
 ];

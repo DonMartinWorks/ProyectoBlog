@@ -333,12 +333,12 @@ return [
         [
             'text'       => 'post_list',
             'route'        => 'admin.posts.index',
-            'icon_color' => 'cyan',
+            'icon' => 'fas fa-newspaper fa-fw fa-fw',
         ],
         [
             'text'       => 'create_a_new_post',
             'route'        => 'admin.posts.create',
-            'icon_color' => 'cyan',
+            'icon' => 'fas fa-plus-square fa-fw fa-fw',
         ],
     ],
 

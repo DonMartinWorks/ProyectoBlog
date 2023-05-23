@@ -72,6 +72,7 @@
     "Last active": "Activo por última vez",
     "Last used": "Usado por última vez",
     "Leave": "Abandonar",
+    "Admin Dashboard": "Panel de Administración",
     "Leave Team": "Abandonar equipo",
     "Log in": "Iniciar sesión",
     "Log Out": "Finalizar sesión",
@@ -220,5 +221,9 @@
     "Lime Color": "Color Lima",
     "The tag was created!": "¡Se creó la etiqueta!",
     "The tag was updated!": "¡Se editó la etiqueta!",
-    "The tag was deleted!": "¡Se eliminó la etiqueta!"
+    "The tag was deleted!": "¡Se eliminó la etiqueta!",
+    "Welcome to the admin panel.": "Bienvenido al panel de Administración.",
+    "We do not find any post": "No encontramos ninguna publicación",
+    "If you want find a post, write the name here": "Si deseas buscar una publicación, escribe el nombre aquí",
+    "Post Details": "Detalles de la publicación"
 }
