@@ -37,12 +37,12 @@
 
             <div class="form-group">
                 <p class="font-weight-bold">{{ __('Post Status') }}</p>
-                <label>
+                <label class="mr-2">
                     {!! Form::radio('status', 1, true) !!}
                     {{ __('Draft Post') }}
                 </label>
 
-                <label>
+                <label class="ml-2">
                     {!! Form::radio('status', 2) !!}
                     {{ __('Published Post') }}
                 </label>
