@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -73,6 +73,23 @@
                 @enderror
             </div>
 
+            <div class="row my-4">
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img id="picture" src="https://cdn.pixabay.com/photo/2015/09/03/17/50/cobweb-921039_1280.jpg"
+                            alt="{{ __('Default Image') }}" title="{{ __('Default Image') }}">
+                    </div>
+                </div>
+                <div class="col ml-3">
+                    <div class="form-group">
+                        {!! Form::label('file', __('Post Image'), ['title' => __('Image to be shown in this post!')]) !!}
+                        {!! Form::file('file', ['class' => 'form-control-file']) !!}
+                    </div>
+
+                    <p>Colocar aquí una breve instrucción para que el usuario no supere 1Mb en la imagen</p>
+                </div>
+            </div>
+
             <div class="form-group">
                 {!! Form::label('extract', __('Extract')) !!}
                 {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
@@ -99,6 +116,22 @@
     </div>
 @stop
 
+@section('css')
+    <style>
+        .image-wrapper {
+            postition: relative;
+            padding-bottom: 50%;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+@stop
+
 @section('js')
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
@@ -123,5 +156,16 @@
             .catch(error => {
                 console.error(error);
             });
+
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     </script>
 @endsection
