@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->unique();
-            $table->string('slug', 100);
-            $table->text('extract');
-            $table->longText('body');
+            $table->string('slug', 100)->unique();
+            $table->text('extract')->nullable();
+            $table->longText('body')->nullable();
             $table->enum('status', ['1', '2'])->default(1); // 1: BORRADOR --- 2: PUBLICADO
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
