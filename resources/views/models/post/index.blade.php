@@ -5,7 +5,7 @@
                 <article
                     class="w-full h-80 bg-cover bg-center rounded-md border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400
                     @if ($loop->first) md:col-span-2 @endif"
-                    style="background-image: url({{ Storage::url($post->image->url) }})">
+                    style="background-image: url(@if ($post->image) {{ Storage::url($post->image->url) }} @else https://cdn.pixabay.com/photo/2015/09/03/17/50/cobweb-921039_1280.jpg @endif)">
 
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <div>
