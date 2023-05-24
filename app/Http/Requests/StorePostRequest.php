@@ -28,7 +28,8 @@ class StorePostRequest extends FormRequest
         $rules = [
             'name' => ['required', 'max:100', Rule::unique('posts', 'name')->ignore($this->route('post'))],
             'slug' => ['required', 'max:100', Rule::unique('posts', 'slug')->ignore($this->route('post'))],
-            'status' => ['required', 'in:1,2']
+            'status' => ['required', 'in:1,2'],
+            'file' => ['image', 'max:1024']
         ];
 
         # Si el usuario deja un post como borrador, permite anular algunos

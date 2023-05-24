@@ -80,12 +80,16 @@
                             alt="{{ __('Default Image') }}" title="{{ __('Default Image') }}">
                     </div>
                 </div>
+
                 <div class="col ml-3">
                     <div class="form-group">
                         {!! Form::label('file', __('Post Image'), ['title' => __('Image to be shown in this post!')]) !!}
-                        {!! Form::file('file', ['class' => 'form-control-file']) !!}
-                    </div>
+                        {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
 
+                        @error('file')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     <p>Colocar aquí una breve instrucción para que el usuario no supere 1Mb en la imagen</p>
                 </div>
             </div>
