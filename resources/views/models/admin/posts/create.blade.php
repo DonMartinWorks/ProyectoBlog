@@ -90,7 +90,9 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <p>Colocar aquí una breve instrucción para que el usuario no supere 1Mb en la imagen</p>
+                    <p>
+                        {{ __('We accept images in all formats for uploading. Whether its JPEG, PNG, GIF, or any other common image format, you can upload your image as long as it meets the size limit of 1 MB. This allows you to conveniently upload images in the format that works best for you.') }}
+                    </p>
                 </div>
             </div>
 
