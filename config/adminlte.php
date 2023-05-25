@@ -335,11 +335,11 @@ return [
             'route'        => 'admin.posts.index',
             'icon' => 'fas fa-newspaper fa-fw fa-fw',
         ],
-        [
-            'text'       => 'create_a_new_post',
-            'route'        => 'admin.posts.create',
-            'icon' => 'fas fa-plus-square fa-fw fa-fw',
-        ],
+        // [
+        //     'text'       => 'create_a_new_post',
+        //     'route'        => 'admin.posts.create',
+        //     'icon' => 'fas fa-plus-square fa-fw fa-fw',
+        // ],
     ],
 
     /*

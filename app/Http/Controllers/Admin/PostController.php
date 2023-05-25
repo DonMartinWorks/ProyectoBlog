@@ -54,7 +54,7 @@ class PostController extends Controller
             $post->tags()->attach($request->tags);
         }
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('info', __('The post was created!')); # Alerta estatica
     }
 
     /**
@@ -96,18 +96,18 @@ class PostController extends Controller
                 ]);
             } else {
                 # Si el post no tenia una imagen, le crea una nueva
-                $post->image->create([
+                $post->image()->create([
                     'url' => $url
                 ]);
             }
         }
 
         if ($request->tags) {
-            $post->tags()->attach($request->tags);
+            $post->tags()->sync($request->tags);
         }
 
         //  return redirect()->route('admin.categories.index')->with('info', __('The category was updated!')); # Alerta estatica
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('info', __('The post was updated!')); # Alerta estatica
     }
 
     /**
