@@ -3,20 +3,23 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>{{ __('Create a Post') }}</h1>
+    <h1>{{ __('Post Details') }}</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
-
-            {!! Form::hidden('user_id', auth()->user()->id) !!}
+            {!! Form::model($post, [
+                'route' => ['admin.posts.update', $post],
+                'autocomplete' => 'off',
+                'files' => true,
+                'method' => 'put',
+            ]) !!}
 
             @include('models.admin.posts.partials.forms')
 
             <div class="text-center mt-5">
-                {!! Form::submit(__('Create Post'), ['class' => 'btn btn-success']) !!}
+                {!! Form::submit(__('Update Post'), ['class' => 'btn btn-success']) !!}
             </div>
             {!! Form::close() !!}
         </div>

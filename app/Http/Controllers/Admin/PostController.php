@@ -6,8 +6,8 @@ use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -34,7 +34,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(PostRequest $request)
     {
         //return Storage::put('public/posts', $request->file('file'));
 
@@ -70,15 +70,44 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('models.admin.posts.edit', compact('post'));
+        $categories =  Category::pluck('name', 'id');
+        $tags = Tag::all();
+
+        return view('models.admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        # Si se va a cambiar la imagen
+        if ($request->file('file')) {
+            $url = Storage::put('public/posts', $request->file('file'));
+
+            # Si el post ya tiene una imagen para eliminarla anterior
+            if ($post->image) {
+                Storage::delete($post->image->url);
+
+                $post->image->update([
+                    'url' => $url,
+                ]);
+            } else {
+                # Si el post no tenia una imagen, le crea una nueva
+                $post->image->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        if ($request->tags) {
+            $post->tags()->attach($request->tags);
+        }
+
+        //  return redirect()->route('admin.categories.index')->with('info', __('The category was updated!')); # Alerta estatica
+        return redirect()->route('admin.posts.index');
     }
 
     /**
