@@ -27,25 +27,29 @@
             </div>
 
             <!-- Related Content -->
-            <aside
-                class="lg:ml-3 bg-white rounded-md border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400">
-                <h2 class="text-2xl font-bold text-gray-500 my-4 text-center">{{ __('See More') }}:
+            <aside class="lg:ml-3 bg-white rounded-md border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400">
+                <h2 class="text-4xl font-bold text-gray-500 my-4 text-center">{{ __('See More') }}:
                     {{ $post->category->name }}</h2>
 
-                <ul class="text-center my-52">
+
+                    <ul class="text-center mt-44">
+                    <p class="text-xl font-bold text-blue-500 my-4 text-center mx-5">
+                        {{ __('We have these related posts that maybe interest you!') }}
+                    </p>
                     @foreach ($relateds as $related)
                         <li class="mb-4 mx-5">
-                            <a class="flex border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400" href="{{ route('posts.show', $related) }}">
+                            <a class="hover:bg-gray-100 hover:font-extrabold flex border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400 rounded-md"
+                                href="{{ route('posts.show', $related) }}">
                                 @if ($related->image)
-                                    <img class="lg:w-24 w-36 h-20 object-cover object-center"
+                                    <img class="aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
                                         src="{{ Storage::url($related->image->url) }}" alt="{{ $post->name }}">
                                 @else
-                                    <img class="lg:w-24 w-36 h-20 object-cover object-center"
+                                    <img class="aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
                                         src="https://cdn.pixabay.com/photo/2015/09/03/17/50/cobweb-921039_1280.jpg"
                                         alt="{{ $post->name }}">
                                 @endif
 
-                                <span class="ml-2 text-gray-400">{{ $related->name }}</span>
+                                <span class="ml-2 text-purple-500 ">{{ $related->name }}</span>
                             </a>
                         </li>
                     @endforeach
