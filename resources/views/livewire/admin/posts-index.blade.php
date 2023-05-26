@@ -1,5 +1,5 @@
+{{-- Este componente usa Bootstrap --}}
 <div class="card">
-    {{-- Este componente usa Bootstrap --}}
     <div class="card-header">
         <input wire:model="search" class="form-control"
             placeholder="{{ __('If you want find a post, write the name here') }}">
@@ -20,7 +20,11 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
-                            <td>{{ $post->name }}</td>
+                            <td>
+                                <a href="{{ route('posts.show', $post) }}">
+                                    {{ $post->name }}
+                                </a>
+                            </td>
                             <td width="10px">
                                 <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $post->name }}">{{ __('Edit') }}</a>

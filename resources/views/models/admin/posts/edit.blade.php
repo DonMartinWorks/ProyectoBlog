@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>{{ __('Post Details') }}</h1>
+    <h1>{{ __('Update Post') }}: {{ $post->name }}</h1>
 @stop
 
 @section('content')
