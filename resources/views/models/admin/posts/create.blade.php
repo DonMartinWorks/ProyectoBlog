@@ -11,8 +11,6 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
-            {!! Form::hidden('user_id', auth()->user()->id) !!}
-
             @include('models.admin.posts.partials.forms')
 
             <div class="text-center mt-5">
