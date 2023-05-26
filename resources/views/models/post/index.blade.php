@@ -11,7 +11,8 @@
                         <div class="mb-1">
                             @foreach ($post->tags as $tag)
                                 <a href="{{ route('posts.tag', $tag) }}"
-                                    class="capitalize inline-block px-3 h-6 bg-{{ $tag->color }}-600 border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400 text-white rounded-md justify-center items-center">{{ $tag->name }}</a>
+                                    class="capitalize inline-center py-1 mx-1 px-3 h-6 bg-{{ $tag->color }}-600 border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400 text-white text-bold rounded-md justify-center items-center">{{ $tag->name }}
+                                </a>
                             @endforeach
                         </div>
 
