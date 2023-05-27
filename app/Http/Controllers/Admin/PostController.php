@@ -70,6 +70,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        # Para verificar que el usuario es dueño de este post
+        $this->authorize('author', $post);
+
         $categories =  Category::pluck('name', 'id');
         $tags = Tag::all();
 
@@ -81,6 +84,10 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+
+        # Para verificar que el usuario es dueño de este post
+        $this->authorize('author', $post);
+
         $post->update($request->all());
 
         # Si se va a cambiar la imagen
@@ -115,6 +122,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        # Para verificar que el usuario es dueño de este post
+        $this->authorize('author', $post);
+
         $post->delete();
         return redirect()->route('admin.posts.index')->with('info', __('The post was deleted!')); # Alerta estatica
     }

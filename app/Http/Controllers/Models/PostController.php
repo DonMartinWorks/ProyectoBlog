@@ -31,6 +31,9 @@ class PostController extends Controller
          * y que su status sea 2 de publicado) desde la base de datos
          */
 
+        // Solo trae los posts published
+        $this->authorize('published', $post);
+
         $relateds = Post::where('category_id', $post->category_id)
             ->where('status', 2)
             ->where('id', '!=', $post->id)
