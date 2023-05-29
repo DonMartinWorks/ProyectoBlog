@@ -20,8 +20,12 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('123456789'),
             'remember_token' => Str::random(10),
-        ]);
+        ])->assignRole('Admin');
 
         User::factory(20)->create();
+
+        // for ($i = 1; $i < 11; $i++) {
+        //     User::factory()->create()->assignRole('Blogger');
+        // }
     }
 }
