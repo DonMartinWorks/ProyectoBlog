@@ -18,6 +18,14 @@ class Post extends Model
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
+     * Metodo para devolver el slug en de la ID en la URL
+     */
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
+    /**
      * Get the user that owns the Post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

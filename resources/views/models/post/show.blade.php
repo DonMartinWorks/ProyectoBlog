@@ -41,10 +41,10 @@
                             <a class="hover:bg-gray-100 hover:font-extrabold flex border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400 rounded-md"
                                 href="{{ route('posts.show', $related) }}">
                                 @if ($related->image)
-                                    <img class="aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
+                                    <img class="lg:w-24 aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
                                         src="{{ Storage::url($related->image->url) }}" alt="{{ $post->name }}">
                                 @else
-                                    <img class="aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
+                                    <img class="lg:w-24 aspect-[16/9] w-36 h-20 border-r-2 border-gray-400 object-cover object-center"
                                         src="https://cdn.pixabay.com/photo/2015/09/03/17/50/cobweb-921039_1280.jpg"
                                         alt="{{ $post->name }}">
                                 @endif

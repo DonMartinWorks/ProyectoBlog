@@ -20,14 +20,14 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
-                            <td>{{ $post->name }}</td>
-                            {{-- <td>
-                                <a href="{{ route('posts.show', $post) }}">
+                            {{-- <td>{{ $post->name }}</td> --}}
+                            <td>
+                                <a href="{{ route('posts.show', $post->slug) }}">
                                     {{ $post->name }}
                                 </a>
-                            </td> --}}
+                            </td>
                             <td width="10px">
-                                <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.posts.edit', $post->slug) }}" class="btn btn-warning btn-sm"
                                     title="{{ __('Edit') }} {{ $post->name }}">{{ __('Edit') }}</a>
                             </td>
                             <td width="10px">
