@@ -33,6 +33,6 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.index')->with('info', __('The role was updated!')); # Alerta estatica
+        return redirect()->route('admin.users.index')->with('info', __('The user role was updated!')); # Alerta estatica
     }
 }

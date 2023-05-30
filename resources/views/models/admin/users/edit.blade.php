@@ -12,7 +12,7 @@
             <p class="h4">{{ __('Name') }}</p>
             <p class="form-control">{{ $user->name }}</p>
 
-            <p class="h5 pt-4">{{ __('role listing') }}</p>
+            <p class="h5 pt-4">{{ __('Role Listing') }}</p>
             {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put']) !!}
             @foreach ($roles as $role)
                 <div>
@@ -24,7 +24,7 @@
             @endforeach
 
             <div class="text-center mt-5">
-                {!! Form::submit(__('Asign Role'), ['class' => 'btn btn-success']) !!}
+                {!! Form::submit(__('Assign Role'), ['class' => 'btn btn-success']) !!}
             </div>
             {!! Form::close() !!}
         </div>

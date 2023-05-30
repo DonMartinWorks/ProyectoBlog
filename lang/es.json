@@ -244,5 +244,9 @@
     "The post was created!": "¡La Publicación se creó satisfactoriamente!",
     "The post was updated!": "¡La Publicación se actualizó satisfactoriamente!",
     "The post was deleted!": "¡La Publicación se eliminó satisfactoriamente!",
-    "We have these related posts that maybe interest you!": "¡Tenemos estas publicaciones relacionadas que tal vez te interesen!"
+    "We have these related posts that maybe interest you!": "¡Tenemos estas publicaciones relacionadas que tal vez te interesen!",
+    "Asign Role to the user": "Asignar el rol al usuario",
+    "The user role was updated!": "Se actualizó el rol del usuario",
+    "Role Listing": "Listado de roles",
+    "Assign Role": "Asignar Rol"
 }

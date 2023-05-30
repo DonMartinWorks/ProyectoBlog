@@ -23,4 +23,5 @@ return [
     'blog_options'                  => 'OPCIONES DEL BLOG',
     'post_list'                     => 'Lista de publicaciones',
     'create_a_new_post'             => 'Nueva publicación',
+    'Users'                         => 'Usuarios'
 ];

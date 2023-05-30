@@ -19,10 +19,10 @@ class TagFactory extends Factory
      */
     public function definition(): array
     {
-        $name = $this->faker->unique()->word();
+        $name = $this->faker->unique()->word(3);
 
         return [
-            'name' => $name,
+            'name' => strtoupper($name),
             'slug' => Str::slug($name),
             'color' => $this->faker->randomElement([
                 'red', 'yellow', 'green',
