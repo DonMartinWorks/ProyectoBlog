@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeController;
+
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('', [HomeController::class, 'index'])->name('admin.home');
 
@@ -14,3 +16,6 @@ Route::resource('tags', TagController::class)->names('admin.tags');
 
 //Posts
 Route::resource('posts', PostController::class)->names('admin.posts');
+
+//Permisos
+Route::resource('users', UserController::class)->names('admin.users');

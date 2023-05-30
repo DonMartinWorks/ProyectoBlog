@@ -7,6 +7,7 @@ return [
     'pages'                         => 'Páginas',
     'account_settings'              => 'AJUSTES DE LA CUENTA',
     'admin_settings'                => 'AJUSTES DE LA ADMINISTRACIÓN',
+    'user_settings'                => 'AJUSTES DE LOS USUARIOS',
     'profile'                       => 'Perfil',
     'change_password'               => 'Cambiar Contraseña',
     'multilevel'                    => 'Multi Nivel',

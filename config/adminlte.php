@@ -316,6 +316,13 @@ return [
             'route'       => 'admin.home',
             'icon'        => 'fas fa-home fa-fw fa-fw',
         ],
+        ['header' => 'user_settings'],
+        [
+            'text'   => 'Users',
+            'route'  => 'admin.users.index',
+            'icon'   => 'fas fa-users fa-fw fa-fw',
+            'active' => ['admin/users*']
+        ],
         ['header' => 'admin_settings'],
         [
             'text'   => 'Categories',
