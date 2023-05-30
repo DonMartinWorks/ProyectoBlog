@@ -7,5 +7,7 @@
 @stop
 
 @section('content')
+    @include('models.partials.message')
+
     @livewire('admin.users-index')
 @stop

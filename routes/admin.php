@@ -17,5 +17,5 @@ Route::resource('tags', TagController::class)->names('admin.tags');
 //Posts
 Route::resource('posts', PostController::class)->names('admin.posts');
 
-//Permisos
-Route::resource('users', UserController::class)->names('admin.users');
+//Permisos (Users)
+Route::resource('users', UserController::class)->only('index', 'edit', 'update')->names('admin.users');

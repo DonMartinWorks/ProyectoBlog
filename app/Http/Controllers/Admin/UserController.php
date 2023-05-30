@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -17,35 +18,12 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        return view('models.admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -53,14 +31,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
-    }
+        $user->roles()->sync($request->roles);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
+        return redirect()->route('admin.users.index')->with('info', __('The role was updated!')); # Alerta estatica
     }
 }
