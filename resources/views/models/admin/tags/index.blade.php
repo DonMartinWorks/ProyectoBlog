@@ -3,7 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <a class="btn btn-primary btn-md float-right" href="{{ route('admin.tags.create') }}">{{ __('Create a new Tag') }}</a>
+    @can('admin.tags.create')
+        <a class="btn btn-primary btn-md float-right" href="{{ route('admin.tags.create') }}">{{ __('Create a new Tag') }}</a>
+    @endcan
 
     <h1>{{ __('Tag List') }}</h1>
 @stop
@@ -28,17 +30,21 @@
                             <td>{{ $tag->id }}</td>
                             <td>{{ $tag->name }}</td>
                             <td width="10px">
-                                <a href="{{ route('admin.tags.edit', $tag->slug) }}" class="btn btn-warning btn-sm"
-                                    title="{{ __('Edit') }} {{ $tag->name }}"">{{ __('Edit') }}</a>
+                                @can('admin.tags.edit')
+                                    <a href="{{ route('admin.tags.edit', $tag->slug) }}" class="btn btn-warning btn-sm"
+                                        title="{{ __('Edit') }} {{ $tag->name }}"">{{ __('Edit') }}</a>
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="post"
-                                    onsubmit="return confirm('Are you sure you want to delete this tag?');">
-                                    @csrf
-                                    @method('delete')
-                                    <button title="{{ __('Delete') }} {{ $tag->name }}" type="submit"
-                                        class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
-                                </form>
+                                @can('admin.tags.destroy')
+                                    <form action="{{ route('admin.tags.destroy', $tag) }}" method="post"
+                                        onsubmit="return confirm('Are you sure you want to delete this tag?');">
+                                        @csrf
+                                        @method('delete')
+                                        <button title="{{ __('Delete') }} {{ $tag->name }}" type="submit"
+                                            class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

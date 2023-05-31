@@ -315,38 +315,51 @@ return [
             'text'        => 'dashboard',
             'route'       => 'admin.home',
             'icon'        => 'fas fa-home fa-fw fa-fw',
+            'can'         => 'admin.home',
         ],
-        ['header' => 'user_settings'],
+        [
+            'header' => 'user_settings',
+            'can'    => 'admin.users.index',
+        ],
         [
             'text'   => 'Users',
             'route'  => 'admin.users.index',
             'icon'   => 'fas fa-users fa-fw fa-fw',
-            'active' => ['admin/users*']
+            'active' => ['admin/users*'],
+            'can'    => 'admin.users.index',
         ],
-        ['header' => 'admin_settings'],
+        [
+            'header' => 'admin_settings',
+            'can'    => 'admin.categories.index',
+            'can'    => 'admin.tags.index',
+        ],
         [
             'text'   => 'Categories',
             'route'  => 'admin.categories.index',
             'icon'   => 'fas fa-stream fa-fw fa-fw',
-            'active' => ['admin/categories*']
+            'active' => ['admin/categories*'],
+            'can'    => 'admin.categories.index',
         ],
         [
             'text' => 'labels',
             'route'  => 'admin.tags.index',
             'icon' => 'fas fa-tags fa-fw fa-fw',
-            'active' => ['admin/tags*']
+            'active' => ['admin/tags*'],
+            'can'    => 'admin.tags.index',
         ],
         ['header' => 'blog_options'],
         [
             'text'       => 'post_list',
             'route'        => 'admin.posts.index',
             'icon' => 'fas fa-newspaper fa-fw fa-fw',
+            'can'         => 'admin.posts.index',
         ],
-        // [
-        //     'text'       => 'create_a_new_post',
-        //     'route'        => 'admin.posts.create',
-        //     'icon' => 'fas fa-plus-square fa-fw fa-fw',
-        // ],
+        [
+            'text'       => 'create_a_new_post',
+            'route'        => 'admin.posts.create',
+            'icon' => 'fas fa-plus-square fa-fw fa-fw',
+            'can'         => 'admin.posts.create',
+        ],
     ],
 
     /*

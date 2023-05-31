@@ -3,8 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <a class="btn btn-primary btn-md float-right"
-        href="{{ route('admin.categories.create') }}">{{ __('Create a new Category') }}</a>
+    @can('admin.categories.create')
+        <a class="btn btn-primary btn-md float-right"
+            href="{{ route('admin.categories.create') }}">{{ __('Create a new Category') }}</a>
+    @endcan
+
+
     <h1>{{ __('Category List') }}</h1>
 @stop
 
@@ -30,18 +34,22 @@
                             <td>{{ $category->name }}</td>
 
                             <td width="10px" class="text-center">
-                                <a href="{{ route('admin.categories.edit', $category->slug) }}" class="btn btn-warning btn-sm"
-                                    title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
+                                @can('admin.categories.edit')
+                                    <a href="{{ route('admin.categories.edit', $category->slug) }}" class="btn btn-warning btn-sm"
+                                        title="{{ __('Edit') }} {{ $category->name }}">{{ __('Edit') }}</a>
+                                @endcan
                             </td>
 
                             <td width="10px">
-                                <form action="{{ route('admin.categories.destroy', $category) }}" method="post"
-                                    onsubmit="return confirm('Are you sure you want to delete this category?');">
-                                    @csrf
-                                    @method('delete')
-                                    <button title="{{ __('Delete') }} {{ $category->name }}" type="submit"
-                                        class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
-                                </form>
+                                @can('admin.categories.destroy')
+                                    <form action="{{ route('admin.categories.destroy', $category) }}" method="post"
+                                        onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                        @csrf
+                                        @method('delete')
+                                        <button title="{{ __('Delete') }} {{ $category->name }}" type="submit"
+                                            class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

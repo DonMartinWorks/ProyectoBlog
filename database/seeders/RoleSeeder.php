@@ -20,16 +20,16 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.home'])->syncRoles([$role1, $role2]); // Permiso de ver dashboard
 
         // Categorias
-        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1]);       // Permiso de ver categorias
-        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1]);      // Permiso de crear categorias
-        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1]);        // Permiso de editar categorias
-        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1]);     // Permiso de eliminar categorias
+        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$role1, $role2]);       // Permiso de ver categorias
+        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$role1]);              // Permiso de crear categorias
+        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$role1]);                // Permiso de editar categorias
+        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$role1]);             // Permiso de eliminar categorias
 
         // Tags
-        Permission::create(['name' => 'admin.tags.index'])->syncRoles([$role1]);       // Permiso de ver tags
-        Permission::create(['name' => 'admin.tags.create'])->syncRoles([$role1]);      // Permiso de crear tags
-        Permission::create(['name' => 'admin.tags.edit'])->syncRoles([$role1]);        // Permiso de editar tags
-        Permission::create(['name' => 'admin.tags.destroy'])->syncRoles([$role1]);     // Permiso de eliminar tags
+        Permission::create(['name' => 'admin.tags.index'])->syncRoles([$role1, $role2]);       // Permiso de ver tags
+        Permission::create(['name' => 'admin.tags.create'])->syncRoles([$role1]);              // Permiso de crear tags
+        Permission::create(['name' => 'admin.tags.edit'])->syncRoles([$role1]);                // Permiso de editar tags
+        Permission::create(['name' => 'admin.tags.destroy'])->syncRoles([$role1]);             // Permiso de eliminar tags
 
         // Posts
         Permission::create(['name' => 'admin.posts.index'])->syncRoles([$role1, $role2]);       // Permiso de ver posts
