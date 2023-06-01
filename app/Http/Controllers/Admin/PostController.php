@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     /**
+     * Niega el acceso al usuario que no tenga los permisos, para realizar culaquiera de estas acciones
+     */
+    public function __construct()
+    {
+        $this->middleware('can:admin.posts.index')->only('index');
+        $this->middleware('can:admin.posts.create')->only('create', 'store');
+        $this->middleware('can:admin.posts.edit')->only('edit', 'update');
+        $this->middleware('can:admin.posts.destroy')->only('destroy');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -55,14 +66,6 @@ class PostController extends Controller
         }
 
         return redirect()->route('admin.posts.index')->with('info', __('The post was created!')); # Alerta estatica
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
-    {
-        return view('models.admin.posts.show', compact('post'));
     }
 
     /**

@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
+     * Niega el acceso al usuario que no tenga los permisos, para realizar culaquiera de estas acciones
+     */
+    public function __construct()
+    {
+        $this->middleware('can:admin.categories.index')->only('index');
+        $this->middleware('can:admin.categories.create')->only('create', 'store');
+        $this->middleware('can:admin.categories.edit')->only('edit', 'update');
+        $this->middleware('can:admin.categories.destroy')->only('destroy');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -37,14 +48,6 @@ class CategoryController extends Controller
         # Mensaje Toast
 
         return redirect()->route('admin.categories.index')->with('info', __('The category was created!')); # Alerta estatica
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        return view('models.admin.categories.show', compact('category'));
     }
 
     /**

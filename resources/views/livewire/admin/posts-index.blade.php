@@ -22,7 +22,7 @@
                             <td>{{ $post->id }}</td>
                             {{-- <td>{{ $post->name }}</td> --}}
                             <td>
-                                <a href="{{ route('posts.show', $post->slug) }}">
+                                <a ref="{{ route('posts.show', $post) }}"">
                                     {{ $post->name }}
                                 </a>
                             </td>

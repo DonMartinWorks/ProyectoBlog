@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
     /**
+     * Niega el acceso al usuario que no tenga los permisos, para realizar culaquiera de estas acciones
+     */
+    public function __construct()
+    {
+        $this->middleware('can:admin.tags.index')->only('index');
+        $this->middleware('can:admin.tags.create')->only('create', 'store');
+        $this->middleware('can:admin.tags.edit')->only('edit', 'update');
+        $this->middleware('can:admin.tags.destroy')->only('destroy');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -50,14 +61,6 @@ class TagController extends Controller
         Tag::create($request->validated());
 
         return redirect()->route('admin.tags.index')->with('info', __('The tag was created!')); # Alerta estatica
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tag $tag)
-    {
-        return view('models.admin.tags.show', compact('tag'));
     }
 
     /**

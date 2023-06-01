@@ -10,6 +10,15 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     /**
+     * Niega el acceso al usuario que no tenga los permisos, para realizar culaquiera de estas acciones
+     */
+    public function __construct()
+    {
+        $this->middleware('can:admin.users.index')->only('index');
+        $this->middleware('can:admin.users.edit')->only('edit', 'update');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
