@@ -354,7 +354,10 @@ return [
             'active' => ['admin/tags*'],
             'can'    => 'admin.tags.index',
         ],
-        ['header' => 'blog_options'],
+        [
+            'header' => 'blog_options',
+            'can'    => 'admin.posts.index',
+        ],
         [
             'text'       => 'post_list',
             'route'        => 'admin.posts.index',
