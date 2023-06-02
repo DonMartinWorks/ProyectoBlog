@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+@include('models.partials.message')
     <div class="card">
         <div class="card-body">
             <table class="table table-striped">

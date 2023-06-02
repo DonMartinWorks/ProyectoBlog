@@ -34,7 +34,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required']);
+        $request->validate(['name' => 'required', 'unique:roles,name']);
 
         $role = Role::create($request->all());
 
@@ -56,7 +56,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('models.admin.roles.edit', compact('role'));
+        $permissions = Permission::all();
+
+        return view('models.admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -64,7 +66,13 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate(['name' => 'required', 'unique:roles,name']);
+
+        $role->update($request->all());
+
+        $role->permissions()->sync($request->permissions);
+
+        return redirect()->route('admin.roles.index')->with('info', __('The role was updated!')); # Alerta estatica
     }
 
     /**
@@ -72,6 +80,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return redirect()->route('admin.roles.index')->with('info', __('The role was deleted!')); # Alerta estatica
     }
 }
