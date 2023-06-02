@@ -332,8 +332,8 @@ return [
             'text'   => 'Roles List',
             'route'  => 'admin.roles.index',
             'icon'   => 'fas fa-users-cog fa-fw fa-fw',
-        //  'active' => ['admin/users*'],
-        //  'can'    => 'admin.users.index',
+            'active' => ['admin/roles*'],
+            'can'    => 'admin.users.edit',
         ],
         [
             'header' => 'admin_settings',

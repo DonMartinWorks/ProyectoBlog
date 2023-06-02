@@ -32,11 +32,11 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        $request->validate(['name' => 'required', 'unique:roles,name']);
+        $role = Role::create($request->validated());
 
-        $role = Role::create($request->all());
+        // $role = Role::create($request->all());
 
         $role->permissions()->sync($request->permissions);
 
@@ -64,11 +64,11 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
-        $request->validate(['name' => 'required', 'unique:roles,name']);
+        $role->update($request->validated());
 
-        $role->update($request->all());
+        // $role->update($request->all());
 
         $role->permissions()->sync($request->permissions);
 
