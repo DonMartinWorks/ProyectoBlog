@@ -28,15 +28,6 @@
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm"
                                         title="{{ __('Edit') }} {{ $user->name }}">{{ __('Edit') }}</a>
                                 </td>
-                                {{-- <td width="10px">
-                                    <form action="{{ route('admin.users.destroy', $user) }}" method="post"
-                                        onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                        @csrf
-                                        @method('delete')
-                                        <button title="{{ __('Delete') }} {{ $user->name }}" type="submit"
-                                            class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
-                                    </form>
-                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

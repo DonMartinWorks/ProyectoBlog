@@ -4,7 +4,7 @@
 
 @section('content_header')
     <a class="btn btn-primary btn-md float-right" href="{{ route('admin.roles.create') }}">{{ __('Create a new Role') }}</a>
-    <h1>{{ __('Role Details') }}</h1>
+    <h1>{{ __('Role List') }}</h1>
 @stop
 
 @section('content')

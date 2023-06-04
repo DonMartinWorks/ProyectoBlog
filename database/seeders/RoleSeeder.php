@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
 
         Permission::create([
             'name' => 'admin.home',
-            'description' => __('See Dashboard')
+            'description' => __('See Admin Dashboard')
         ])->syncRoles([$role1, $role2]); // Permiso de ver dashboard
 
         // Categorias
