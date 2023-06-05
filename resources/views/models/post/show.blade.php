@@ -21,11 +21,11 @@
                     @endif
                 </figure>
 
-                <div class="my-6 ml-3 text-lg leading-6">
+                <div class="my-6 ml-3 text-lg leading-6 flow-root capitalize">
                     <span class="text-black underline justify-start">{{ __('Writter') }}</span>:
                     {{ $post->user->name }}
-                    <span class="justify-end mx-52">
-                        <a class="text-purple-700">{{ $post->created_at->format('d/m/Y') }}</a>
+                    <span class="justify-end float-right mr-3">
+                        <a class="text-purple-700 font-semibold">{{ $post->created_at->format('d/m/Y') }}</a>
                     </span>
                 </div>
 
