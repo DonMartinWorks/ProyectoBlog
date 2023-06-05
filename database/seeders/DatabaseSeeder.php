@@ -19,6 +19,16 @@ class DatabaseSeeder extends Seeder
         // Eliminacion posts, para no tener imaganes de mas
         Storage::deleteDirectory('public/posts');
 
+        // Eliminacion livewire-tmp
+        if (Storage::deleteDirectory('livewire-tmp')) {
+            Storage::deleteDirectory('livewire-tmp');
+        }
+
+        // Eliminacion imagenes de portada
+        if (Storage::deleteDirectory('public/profile-photos')) {
+            Storage::deleteDirectory('public/profile-photos');
+        }
+
         // Creacion de la carpeta (posts) si no existe
         Storage::makeDirectory('public/posts');
 
