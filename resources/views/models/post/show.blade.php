@@ -6,6 +6,7 @@
             {!! $post->extract !!}
         </div>
 
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Principal Content -->
             <div class="lg:col-span-2">
@@ -18,8 +19,15 @@
                             src="https://cdn.pixabay.com/photo/2015/09/03/17/50/cobweb-921039_1280.jpg"
                             alt="{{ $post->name }}">
                     @endif
-
                 </figure>
+
+                <div class="my-6 ml-3 text-lg leading-6">
+                    <span class="text-black underline justify-start">{{ __('Writter') }}</span>:
+                    {{ $post->user->name }}
+                    <span class="justify-end mx-52">
+                        <a class="text-purple-700">{{ $post->created_at->format('d/m/Y') }}</a>
+                    </span>
+                </div>
 
                 <div class="lg:my-7 sm:my-9 my-5 mx-2 text-base text-gray-800">
                     {!! $post->body !!}
@@ -28,11 +36,10 @@
 
             <!-- Related Content -->
             <aside class="lg:ml-3 bg-white rounded-md border-t-2 border-b-2 border-l-2 border-r-2 border-gray-400">
-                <h2 class="text-4xl font-bold text-gray-500 my-4 text-center">{{ __('See More') }}:
+                <h2 class="text-4xl font-bold text-gray-500 mt-8 text-center">{{ __('See More') }}:
                     {{ $post->category->name }}</h2>
 
-
-                    <ul class="text-center mt-44">
+                <ul class="text-center mt-36">
                     <p class="text-xl font-bold text-blue-500 my-4 text-center mx-5">
                         {{ __('We have these related posts that maybe interest you!') }}
                     </p>
